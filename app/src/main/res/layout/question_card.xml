@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="5dp"
+    android:background="@color/Gray4d">
+
+
+    <!--The main card-->
+    <RelativeLayout
+        android:id="@+id/rlMainCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:layout_below="@+id/rlPictures"
+        android:layout_marginTop="-70dp"
+        android:padding="20dp">
+
+        <!--yesNo Mode-->
+        <RelativeLayout
+            android:id="@+id/yesNoMode"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:visibility="gone">
+            <!--tvquestion-->
+            <com.example.fron.customviews.MyTextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Are you?"
+                android:layout_centerInParent="true"
+                android:textSize="30sp"
+                custom:typeface="roboto_bold"
+                android:layout_marginBottom="50dp" />
+
+            <!--rlNo and rlYes-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+                <!--rlNo-->
+                <RelativeLayout
+                    android:id="@+id/rlNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="45dp"
+                    android:paddingRight="45dp"
+                    android:background="@color/RedIntellitap"
+                    android:layout_alignParentLeft="true">
+
+                    <com.example.fron.customviews.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        custom:typeface="roboto_bold"
+                        android:textColor="@android:color/white"
+                        android:textSize="25sp" />
+                </RelativeLayout>
+
+                <!--rlYes-->
+                <RelativeLayout
+                    android:id="@+id/rlYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
+                    android:background="@color/GreenIntellitap"
+                    android:layout_alignParentRight="true">
+
+                    <com.example.fron.customviews.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        custom:typeface="roboto_bold"
+                        android:textColor="@android:color/white"
+                        android:textSize="25sp" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!--Agree - dissagree mode-->
+        <LinearLayout
+            android:id="@+id/agreeDissagreeMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--question-->
+            <com.example.fron.customviews.MyTextView
+                android:id="@+id/tvQuestionAgreeness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Are you?"
+                android:layout_gravity="center_horizontal"
+                android:textSize="27sp"
+                custom:typeface="roboto_bold"
+                android:layout_marginTop="60dp" />
+
+            <!--Agreeness level-->
+            <LinearLayout
+                android:id="@+id/llAgreenessLevel"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <!--Provider pictures area-->
+    <RelativeLayout
+        android:id="@+id/rlPictures"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:background="@drawable/circle"
+        android:layout_centerHorizontal="true">
+
+        <com.pkmmte.view.CircularImageView
+            android:id="@+id/ivProviderPicture"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_blue" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
