@@ -8,12 +8,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,6 +24,10 @@ import com.example.fron.customviews.MyTextView;
 import com.example.fron.customviews.TypefaceIntellitap;
 
 import java.util.ArrayList;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by Fahran on 1/18/2015.
@@ -49,8 +55,8 @@ public class PageSignUp extends Fragment {
 
         llMain = (LinearLayout) v.findViewById(R.id.llMain);
 
-        LinearLayout llSignUpField = (LinearLayout) v.findViewById(R.id.llSignUpField);
-        String[] hints = new String[]{"Alias", "Email", "Password", "Age", "Region", "Gender",};
+        final LinearLayout llSignUpField = (LinearLayout) v.findViewById(R.id.llSignUpField);
+        String[] hints = new String[]{"Alias", "Email", "Password", "Year born", "Region", "Gender",};
         for (String hint : hints) {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             int margin = (int) (13 * scaleDP + 0.5f);
@@ -83,7 +89,58 @@ public class PageSignUp extends Fragment {
         rlSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).replaceFragments(new PageQuestion(), false, "");
+                final Users user = new Users();
+                for (int i = 0; i < llSignUpField.getChildCount(); i++) {
+                    String text = "";
+                    if (llSignUpField.getChildAt(i) instanceof EditTextCustom) {
+                        EditTextCustom et = (EditTextCustom) llSignUpField.getChildAt(i);
+                        text = et.getText();
+                    } else if (llSignUpField.getChildAt(i) instanceof AutoCompleteTextView) {
+                        AutoCompleteTextView atv = (AutoCompleteTextView) llSignUpField.getChildAt(i);
+                        text = atv.getText().toString();
+                    }
+                    if (i == 0) {
+                        user.alias = text;
+                    } else if (i == 1) {
+                        user.email = text;
+                    } else if (i == 2) {
+                        user.password = text;
+                    } else if (i == 3) {
+                        user.birth_year = text;
+                    } else if (i == 4) {
+                        int n = 0;
+                        if (text.equals("Male")) {
+                            n = 1;
+                        } else {
+                            n = 2;
+                        }
+                        user.region_id = n;
+                    } else if (i == 5) {
+                        int n = 0;
+                        if (text.contains("Male")) {
+                            n = 1;
+                        } else {
+                            n = 2;
+                        }
+                        user.gender_id = n;
+                    }
+                }
+
+                ((MainActivity) getActivity()).mentorizeService.addUser(user, new Callback<Metadata>() {
+
+                    @Override
+                    public void success(Metadata users, Response response) {
+                        Log.d("SUCCESS POSTING", "RETRO success usersId = " + users);
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.d("Failure POSTING", "RETRO error = " + error.toString());
+                    }
+                });
+
+
+                ((MainActivity) getActivity()).replaceFragments(PageSignUp.this, new PageQuestion2(), true, "");
             }
         });
 

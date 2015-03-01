@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--Other user chat bubble area-->
+    <RelativeLayout
+        android:id="@+id/otherUserChatBoubleArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:id="@+id/llChatBubble"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="5dp"
+            android:background="@android:color/white"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="-20dp"
+            android:layout_below="@+id/ivOtherPeoplePic">
+
+            <com.example.fron.customviews.MyTextView
+                android:id="@+id/tvMessageOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"
+                custom:typeface="roboto_bold" />
+        </RelativeLayout>
+
+        <com.example.fron.customviews.MyTextView
+            android:id="@+id/timestampOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:00pm"
+            android:textColor="@android:color/white"
+            android:layout_below="@id/llChatBubble"
+            android:layout_alignRight="@id/llChatBubble"
+            android:textSize="10sp"
+            custom:typeface="roboto" />
+
+
+        <ImageView
+            android:id="@+id/ivOtherPeoplePic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_green" />
+
+    </RelativeLayout>
+
+    <!--This user chat bubble area-->
+    <RelativeLayout
+        android:id="@+id/thisUserChatBoubleArea"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:id="@+id/llChatBubbleThis"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="5dp"
+            android:background="@android:color/white"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="-20dp"
+            android:layout_below="@+id/ivOtherPeoplePic2">
+
+            <com.example.fron.customviews.MyTextView
+                android:id="@+id/tvMessageThis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"
+                custom:typeface="roboto_bold" />
+        </RelativeLayout>
+
+
+        <com.example.fron.customviews.MyTextView
+            android:id="@+id/timestampThis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:00pm"
+            android:textColor="@android:color/white"
+            android:layout_below="@id/llChatBubbleThis"
+            android:layout_alignLeft="@id/llChatBubbleThis"
+            android:textSize="10sp"
+            custom:typeface="roboto"
+            android:visibility="visible" />
+
+
+        <ImageView
+            android:id="@+id/ivOtherPeoplePic2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_green"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/ivThisPeoplePic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_green"
+            android:layout_alignRight="@+id/llChatBubbleThis"
+            android:layout_marginRight="-15dp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

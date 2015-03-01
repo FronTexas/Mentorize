@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BlueIntellitap">
+
+
+    <ListView
+        android:id="@+id/lvMessages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/llEditAndSendArea"
+        android:divider="@android:color/transparent"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"></ListView>
+
+    <!--Chat edit text and send area-->
+    <LinearLayout
+        android:id="@+id/llEditAndSendArea"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:background="@android:color/white">
+
+            <EditText
+                android:id="@+id/etUserMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter message here"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlSend"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:background="@color/GreenIntellitap">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:src="@drawable/send" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

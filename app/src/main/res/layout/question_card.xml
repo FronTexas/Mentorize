@@ -3,12 +3,11 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:paddingTop="15dp"
-    android:paddingBottom="5dp"
-    android:background="@color/Gray4d">
+    android:paddingBottom="5dp">
 
 
     <!--The main card-->
@@ -26,7 +25,7 @@
         <RelativeLayout
             android:id="@+id/yesNoMode"
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:visibility="gone">
             <!--tvquestion-->
             <com.example.fron.customviews.MyTextView
@@ -43,7 +42,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true">
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="30dp">
                 <!--rlNo-->
                 <RelativeLayout
                     android:id="@+id/rlNo"
@@ -95,7 +95,8 @@
             android:id="@+id/agreeDissagreeMode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <!--question-->
             <com.example.fron.customviews.MyTextView
@@ -119,6 +120,37 @@
 
         </LinearLayout>
 
+        <!--Agree - dissagree mode-->
+        <LinearLayout
+            android:id="@+id/fillInTheBlank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <!--question-->
+            <com.example.fron.customviews.MyTextView
+                android:id="@+id/tvQuestionFillBlank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Are you?"
+                android:layout_gravity="center_horizontal"
+                android:textSize="27sp"
+                custom:typeface="roboto_bold"
+                android:layout_marginTop="60dp" />
+
+            <!--Agreeness level-->
+            <EditText
+                android:id="@+id/etAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter your answer here"
+                android:layout_gravity="center_horizontal"
+                android:textSize="23sp"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 
@@ -136,7 +168,7 @@
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_centerInParent="true"
-            android:background="@drawable/circle_blue" />
+            android:background="@drawable/circle_green" />
     </RelativeLayout>
 
 

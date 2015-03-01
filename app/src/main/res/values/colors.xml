@@ -12,6 +12,8 @@
     <color name="GrayEE">#eeeeee</color>
     <color name="Gray6B">#6b6b6b</color>
     <color name="GrayF5">#f5f5f5</color>
-
+    <color name="GreenIntellitappDarker">#269a56</color>
+    <color name="RedIntellitappDarker">#c22416</color>
+    <color name="BlueIntellitapLighter">#7abbe8</color>
 
 </resources>

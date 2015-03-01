@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.example.fron.customviews.TypefaceIntellitap;
 
+import retrofit.RestAdapter;
+
 
 /**
  * Created by Fahran on 1/12/2015.
@@ -37,11 +39,19 @@ public class MainActivity extends FragmentActivity {
 
     public View shadow;
 
+    RestAdapter adapter;
+    MentorizeService mentorizeService;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         createTypefaceArray();
+
+        adapter = new RestAdapter.Builder().setEndpoint("http://mintrenv-sbjfpevqhy.elasticbeanstalk.com/").build();
+        mentorizeService = adapter.create(MentorizeService.class);
+
 
         // TODO this is fake. In the future User will be the one who logged in not only Matthew mc :)
         buildUser();

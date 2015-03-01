@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,259 +11,111 @@
 
 
     <!--The main card-->
-    <RelativeLayout
-        android:id="@+id/rlMainCard"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/white"
         android:layout_below="@+id/rlPictures"
         android:layout_marginTop="-70dp"
-        android:paddingTop="60dp"
-        android:paddingBottom="30dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:background="@android:drawable/dialog_holo_light_frame">
 
-        <!--Provider rating, rate, and max # of student area-->
-        <LinearLayout
-            android:id="@+id/llProviderRating"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/rlMainCard"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp">
 
-            <!--Rating box-->
-            <RelativeLayout
-                android:id="@+id/rlRating"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/round_corner_rectangle_gray">
+            android:background="@android:color/white"
 
-                <LinearLayout
-                    android:id="@+id/llRating"
+            android:paddingTop="60dp"
+            android:paddingBottom="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+
+            <!--Provider metadata-->
+            <LinearLayout
+                android:id="@+id/llMetaData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp">
+
+                <com.example.fron.customviews.MyTextView
+                    android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:text="Fahran Kamili"
+                    android:textSize="30sp"
+                    custom:typeface="roboto_bold" />
 
-                    <ImageView
-                        android:id="@+id/stars"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/stars_icon" />
-
-                    <TextView
-                        android:id="@+id/tvRating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="5"
-                        android:gravity="right"
-                        android:textColor="@android:color/white"
-                        android:textSize="35sp"
-                        android:layout_marginLeft="3dp" />
-                </LinearLayout>
-
-
-                <TextView
-                    android:text="Average rating"
-                    android:layout_below="@+id/llRating"
-                    android:layout_centerHorizontal="true"
+                <com.example.fron.customviews.MyTextView
+                    android:id="@+id/tvLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvAverageRatingText"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp" />
-            </RelativeLayout>
+                    android:text="Austin , TX"
+                    android:textSize="13sp"
+                    custom:typeface="roboto" />
+            </LinearLayout>
 
-            <!--Hourly rate box-->
-            <RelativeLayout
-                android:id="@+id/rlRates"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/round_corner_rectangle_green"
-                android:padding="3dp"
-                android:layout_marginTop="10dp">
+            <!--Relevant Expertise Area-->
+            <LinearLayout
+                android:id="@+id/llRelevantExpertise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/llMetaData"
+                android:layout_alignLeft="@id/llMetaData"
+                android:layout_marginTop="15dp">
 
-                <LinearLayout
-                    android:id="@+id/llRates"
+                <com.example.fron.customviews.MyTextView
+                    android:id="@+id/tvRelevantExpertiseText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:text="Relevant Expertise"
+                    android:textSize="12sp"
+                    custom:typeface="roboto_bold_italic" />
 
-                    <TextView
-                        android:id="@+id/tvDollarSign"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="$"
-                        android:textSize="30sp"
-                        android:textColor="@color/DarkBlueIntellitap" />
-
-                    <TextView
-                        android:id="@+id/tvRates"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00 "
-                        android:textColor="@android:color/white"
-                        android:textSize="35sp"
-                        android:gravity="right"
-
-                        android:layout_marginLeft="2dp" />
-                </LinearLayout>
-
-
-                <TextView
-                    android:text="Hourly rate"
-                    android:layout_below="@+id/llRates"
-                    android:layout_centerHorizontal="true"
+                <com.example.fron.customviews.MyTextView
+                    android:id="@+id/tvRelevantExpertiseList"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvHourlyRateText"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp" />
-            </RelativeLayout>
+                    android:textColor="@color/BlueIntellitap"
+                    android:text="PhD in psychology"
+                    custom:typeface="roboto" />
+            </LinearLayout>
 
-            <!--Max student number box-->
-            <RelativeLayout
-                android:id="@+id/rlMaxStudentNumber"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/round_corner_rectangle_red"
-                android:padding="3dp"
-                android:layout_marginTop="10dp">
+            <!--Preferred Location Area-->
+            <LinearLayout
+                android:id="@+id/llPreferredLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/llRelevantExpertise"
+                android:layout_alignLeft="@id/llMetaData"
+                android:layout_marginTop="15dp">
 
-                <LinearLayout
-                    android:id="@+id/llMaxStudents"
+                <com.example.fron.customviews.MyTextView
+                    android:id="@+id/tvPreferredLocationText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_centerInParent="true"
-                    android:gravity="center_vertical">
+                    android:text="Preferred Location"
+                    android:textSize="12sp"
+                    custom:typeface="roboto_bold_italic" />
 
-                    <ImageView
-                        android:id="@+id/students"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:src="@drawable/student_icon2" />
-
-                    <TextView
-                        android:id="@+id/tvMaxStudents"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00 "
-                        android:gravity="right"
-                        android:textColor="@android:color/white"
-                        android:textSize="30sp" />
-                </LinearLayout>
-
-
-                <TextView
-                    android:text="Max # of student"
-                    android:layout_below="@+id/llMaxStudents"
-                    android:layout_centerHorizontal="true"
+                <com.example.fron.customviews.MyTextView
+                    android:id="@+id/tvPreferredLocationList"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvMaxStudentsText"
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="5dp"
-                    android:textSize="9sp" />
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <!--Provider metadata-->
-        <LinearLayout
-            android:id="@+id/llMetaData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/llProviderRating"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp">
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fahran Kamili"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/tvInstitute"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="The University Of Texas at Austin"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tvLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Austin , TX"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-        <!--Relevant Expertise Area-->
-        <LinearLayout
-            android:id="@+id/llRelevantExpertise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@+id/llMetaData"
-            android:layout_alignLeft="@id/llMetaData"
-            android:layout_marginTop="15dp">
-
-            <TextView
-                android:id="@+id/tvRelevantExpertiseText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Relevant Expertise"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tvRelevantExpertiseList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/BlueIntellitap"
-                android:text="Calculus, Probability And Statistics, Articial Intelligence" />
-        </LinearLayout>
-
-        <!--Preferred Location Area-->
-        <LinearLayout
-            android:id="@+id/llPreferredLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@+id/llRelevantExpertise"
-            android:layout_alignLeft="@id/llMetaData"
-            android:layout_marginTop="15dp">
-
-            <TextView
-                android:id="@+id/tvPreferredLocationText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Preferred Location"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tvPreferredLocationList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/BlueIntellitap"
-                android:text="PCL, West Campus, North Campus, 6th street" />
-        </LinearLayout>
+                    android:textColor="@color/BlueIntellitap"
+                    android:text="PCL, West Campus, North Campus, 6th street"
+                    custom:typeface="roboto" />
+            </LinearLayout>
 
 
-    </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
-    <!--Dropdown shadow-->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@drawable/drop_shadow_down"
-        android:layout_below="@id/rlMainCard" />
 
     <!--Provider pictures area-->
     <RelativeLayout
@@ -277,7 +130,7 @@
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_centerInParent="true"
-            android:background="@drawable/circle_blue"/>
+            android:background="@drawable/circle_green" />
     </RelativeLayout>
 
 

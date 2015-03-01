@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Gray4d">
+    android:background="@color/BlueIntellitap">
 
     <!--Progressbar-->
     <LinearLayout
@@ -24,14 +24,15 @@
             android:id="@+id/graybar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/Gray6B"
+            android:background="@color/BlueIntellitapLighter"
             android:layout_weight="0"
             android:orientation="horizontal"></LinearLayout>
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/questionFrameLayout"
+    <ListView
+        android:id="@+id/lvQuestions"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"></ListView>
 
 </LinearLayout>
